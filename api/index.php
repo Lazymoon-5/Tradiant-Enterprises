@@ -3,6 +3,33 @@
 chdir(__DIR__ . '/..');
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Serve static assets directly if hit via router
+$file = __DIR__ . '/..' . $uri;
+if (file_exists($file) && !is_dir($file)) {
+    $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+    $mimeTypes = [
+        'css'   => 'text/css',
+        'js'    => 'application/javascript',
+        'png'   => 'image/png',
+        'jpg'   => 'image/jpeg',
+        'jpeg'  => 'image/jpeg',
+        'gif'   => 'image/gif',
+        'svg'   => 'image/svg+xml',
+        'ico'   => 'image/x-icon',
+        'json'  => 'application/json',
+        'woff'  => 'font/woff',
+        'woff2' => 'font/woff2',
+        'ttf'   => 'font/ttf'
+    ];
+    if (isset($mimeTypes[$ext])) {
+        header('Content-Type: ' . $mimeTypes[$ext]);
+        header('Cache-Control: public, max-age=31536000, immutable');
+        readfile($file);
+        exit;
+    }
+}
+
 $uri = rtrim($uri, '/');
 if (empty($uri)) {
     $uri = '/';
@@ -80,7 +107,6 @@ switch ($uri) {
         break;
 
     default:
-        $file = __DIR__ . '/..' . $uri;
         if (file_exists($file) && !is_dir($file) && pathinfo($file, PATHINFO_EXTENSION) === 'php') {
             require $file;
         } else {
