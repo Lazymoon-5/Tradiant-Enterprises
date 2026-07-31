@@ -1,7 +1,7 @@
 <?php
 $page_title = 'Our Services';
 $page_desc = 'Explore all construction, site supervision, electrical, plumbing, masonry, painting, and landscaping services solutionized by Tradiant Enterprises.';
-require_once '../includes/header.php';
+require_once __DIR__ . '/../includes/header.php';
 $services = get_json('services.json');
 ?>
 
@@ -63,4 +63,4 @@ $services = get_json('services.json');
   </div>
 </div>
 
-<?php require_once '../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

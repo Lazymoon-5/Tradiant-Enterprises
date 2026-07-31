@@ -1,7 +1,7 @@
 <?php
 $page_title = 'Home';
 $page_desc  = 'Tradiant Enterprises — Any task - Solutionize. Master consultant & automation expert working since 1997 for home & industrial automation, site supervision, electrical, plumbing, masonry, painting, and landscaping.';
-require_once 'includes/header.php';
+require_once __DIR__ . '/includes/header.php';
 
 $services = get_json('services.json');
 
@@ -203,4 +203,4 @@ $sub_map = [
   </div>
 </div>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

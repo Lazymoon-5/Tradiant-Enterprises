@@ -1,7 +1,7 @@
 <?php
 $page_title = 'Client Testimonials';
 $page_desc = 'Read what homeowners, business owners, and site managers say about Tradiant Enterprises and our Master Solutionizer.';
-require_once '../includes/header.php';
+require_once __DIR__ . '/../includes/header.php';
 $clients = get_json('clients.json');
 ?>
 
@@ -60,4 +60,4 @@ $clients = get_json('clients.json');
   </div>
 </div>
 
-<?php require_once '../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

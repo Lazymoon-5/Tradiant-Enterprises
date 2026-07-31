@@ -1,7 +1,7 @@
 <?php
 $page_title = 'About Us';
 $page_desc = 'Learn about Tradiant Enterprises and our Master Automation Expert & Technical Consultant serving clients since 1997.';
-require_once '../includes/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <!-- ── PAGE HEADER ── -->
@@ -87,4 +87,4 @@ require_once '../includes/header.php';
   </div>
 </div>
 
-<?php require_once '../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>
