@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Automation",
+    "icon": "🤖",
+    "description": "Home & Industrial Automation, Smart Switches, Sensor Integration, Gate Automation & Panel Wiring.",
+    "hero_image": "assets/images/heroes/supervisor.png",
+    "features": ["Home Smart Automation", "Industrial Panel Setup", "Gate & Lighting Control", "Sensor & IoT Integration"]
+  },
+  {
+    "id": 2,
+    "title": "Supervision",
+    "icon": "🦺",
+    "description": "End-to-end on-site project management and quality control for every phase of construction.",
+    "hero_image": "assets/images/heroes/supervisor.png",
+    "features": ["Project Planning", "Quality Audits", "Team Coordination", "Safety Compliance"]
+  },
+  {
+    "id": 3,
+    "title": "Electrical",
+    "icon": "⚡",
+    "description": "Safe, certified electrical wiring, panel installations, and power system setups.",
+    "hero_image": "assets/images/heroes/electrician.png",
+    "features": ["Wiring & Panels", "Power Systems", "Safety Inspections", "Fault Diagnosis"]
+  },
+  {
+    "id": 4,
+    "title": "Plumbing",
+    "icon": "🔧",
+    "description": "Smart plumbing solutions for water supply, drainage, and bathroom fitouts.",
+    "hero_image": "assets/images/heroes/plumber.png",
+    "features": ["Pipe Installation", "Drainage Systems", "Bathroom Fitouts", "Leak Repairs"]
+  },
+  {
+    "id": 5,
+    "title": "Masonry",
+    "icon": "🧱",
+    "description": "Strong brick, block and concrete structures built precisely to last a lifetime.",
+    "hero_image": "assets/images/heroes/mason.png",
+    "features": ["Brickwork", "Concrete Casting", "Wall Construction", "Finishing"]
+  },
+  {
+    "id": 6,
+    "title": "Painting",
+    "icon": "🎨",
+    "description": "Interior and exterior painting with premium finishes that protect and beautify.",
+    "hero_image": "assets/images/heroes/supervisor.png",
+    "features": ["Interior Painting", "Exterior Coating", "Texture Finishes", "Waterproofing"]
+  },
+  {
+    "id": 7,
+    "title": "Landscaping",
+    "icon": "🌿",
+    "description": "Beautiful outdoor spaces designed and maintained for lasting curb appeal.",
+    "hero_image": "assets/images/heroes/supervisor.png",
+    "features": ["Garden Design", "Pathway Laying", "Plant Sourcing", "Maintenance"]
+  }
+]

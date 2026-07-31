@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "Ramesh Builders", "project": "3BHK Residential, Pune", "testimonial": "Outstanding work from start to finish. Every trade handled professionally.", "rating": 5, "year": 2024 },
+  { "id": 2, "name": "Sunita & Mohan Patil", "project": "Villa Construction, Nashik", "testimonial": "Our dream home was built exactly as we imagined. Highly recommend Tradiant!", "rating": 5, "year": 2024 },
+  { "id": 3, "name": "Greenfield Developers", "project": "Commercial Complex, Pune", "testimonial": "Reliable, on-time, and cost-effective. Will work with them again.", "rating": 5, "year": 2023 },
+  { "id": 4, "name": "Priya Constructions", "project": "Bungalow, Satara", "testimonial": "Top quality electrical and plumbing work. Zero complaints.", "rating": 5, "year": 2023 },
+  { "id": 5, "name": "Anjali Sharma", "project": "Home Renovation, Pune", "testimonial": "Transformed our old house completely. Professional team throughout.", "rating": 5, "year": 2024 },
+  { "id": 6, "name": "Metro Infra Ltd", "project": "Office Building, Pune", "testimonial": "Expert supervision kept everything on schedule and within budget.", "rating": 5, "year": 2023 }
+]
