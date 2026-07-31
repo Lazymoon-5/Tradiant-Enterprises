@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /tradiant/admin/
+
+# Redirect /admin/login or /admin/login/ to login.php
+RewriteRule ^login/?$ login.php [R=301,L]
+</IfModule>
