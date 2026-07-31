@@ -1,4 +1,6 @@
-# Tradiant Enterprises — Website Setup
+# Tradiant Enterprises
+
+Tradiant Enterprises provides professional local services to clients.
 
 ## Folder Structure
 ```
@@ -23,11 +25,7 @@ tradiant/
 │   ├── css/style.css
 │   ├── js/main.js
 │   └── images/
-│       └── heroes/            ← PUT YOUR DAD'S IMAGES HERE
-│           ├── supervisor.png
-│           ├── electrician.png
-│           ├── plumber.png
-│           └── mason.png
+│       └── heroes/            ← Hero images
 ├── data/                      ← JSON data files (auto-managed)
 │   ├── services.json
 │   ├── clients.json
@@ -45,18 +43,16 @@ tradiant/
 ### 1. Upload to Server
 Upload the entire `tradiant/` folder to your server's `public_html` or `www` directory.
 
-### 2. Add Your Dad's Images
-Place the 4 (or more) hero images inside:
+### 2. Hero Images
+Place the hero images inside:
 ```
 assets/images/heroes/
 ```
-Name them exactly:
+Name them:
 - `supervisor.png`
 - `electrician.png`
 - `plumber.png`
 - `mason.png`
-
-These should be **transparent PNG** files (no background).
 
 ### 3. Set Folder Permissions
 Make sure the `data/` folder is **writable** by the server:
@@ -68,17 +64,6 @@ chmod 644 data/*.json
 ### 4. Access Admin Panel
 Go to: `yourdomain.com/admin/login.php`
 
-**Default credentials:**
-- Username: `admin`
-- Password: `tradiant2024`
-
-> ⚠️ Change the password immediately after first login via Settings.
-
-### 5. Customize Content
-- Edit services, clients, and testimonials from the Admin Panel
-- Update phone number in `pages/contact.php` and `includes/footer.php`
-- Update email in `pages/contact.php`
-
 ---
 
 ## Requirements
@@ -88,21 +73,5 @@ Go to: `yourdomain.com/admin/login.php`
 
 ---
 
-## Hero Image Swap
-When a visitor hovers a service item on the home page, the center image of your dad changes to match that role. To add more outfit images:
-1. Add the PNG to `assets/images/heroes/`
-2. In `index.php`, update the `$hero_images` array to map the service ID to your filename
-
----
-
-## Admin Panel Features
-| Section   | Features                          |
-|-----------|-----------------------------------|
-| Messages  | View all contact form submissions, delete |
-| Services  | Add, Edit, Delete services        |
-| Clients   | Add, Edit, Delete testimonials    |
-| Settings  | Change username & password        |
-
----
-
 Built for Tradiant Enterprises. © 2025
+
