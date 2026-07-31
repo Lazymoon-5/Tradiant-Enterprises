@@ -5,10 +5,33 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
   exit;
 }
 
-$data_file = __DIR__ . '/../data/admin.json';
-$creds     = json_decode(file_get_contents($data_file), true);
-$success   = '';
-$error     = '';
+if (!function_exists('get_json')) {
+  function get_json($file) {
+    $tmp_path = sys_get_temp_dir() . '/' . $file;
+    if (file_exists($tmp_path)) {
+      return json_decode(file_get_contents($tmp_path), true) ?? [];
+    }
+    $path = __DIR__ . '/../data/' . $file;
+    if (!file_exists($path)) return [];
+    return json_decode(file_get_contents($path), true) ?? [];
+  }
+}
+
+if (!function_exists('save_json')) {
+  function save_json($file, $data) {
+    $json = json_encode($data, JSON_PRETTY_PRINT);
+    $path = __DIR__ . '/../data/' . $file;
+    $saved = @file_put_contents($path, $json);
+    if ($saved === false) {
+      $tmp_path = sys_get_temp_dir() . '/' . $file;
+      @file_put_contents($tmp_path, $json);
+    }
+  }
+}
+
+$creds   = get_json('admin.json');
+$success = '';
+$error   = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($_POST['current_password'] !== $creds['password']) {
@@ -20,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   } else {
     $creds['username'] = trim($_POST['username']);
     $creds['password'] = $_POST['new_password'];
-    file_put_contents($data_file, json_encode($creds, JSON_PRETTY_PRINT));
+    save_json('admin.json', $creds);
     $success = 'Admin credentials updated successfully.';
   }
 }
@@ -87,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST">
           <div class="admin-form-group">
             <label>Username</label>
-            <input type="text" name="username" class="admin-input" value="<?= htmlspecialchars($creds['username']) ?>" required>
+            <input type="text" name="username" class="admin-input" value="<?= htmlspecialchars($creds['username'] ?? 'admin') ?>" required>
           </div>
           <div class="admin-form-group">
             <label>Current Password</label>

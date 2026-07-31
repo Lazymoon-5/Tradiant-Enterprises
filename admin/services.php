@@ -5,14 +5,37 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
   exit;
 }
 
-$data_file = __DIR__ . '/../data/services.json';
-$services  = json_decode(file_get_contents($data_file), true) ?? [];
+if (!function_exists('get_json')) {
+  function get_json($file) {
+    $tmp_path = sys_get_temp_dir() . '/' . $file;
+    if (file_exists($tmp_path)) {
+      return json_decode(file_get_contents($tmp_path), true) ?? [];
+    }
+    $path = __DIR__ . '/../data/' . $file;
+    if (!file_exists($path)) return [];
+    return json_decode(file_get_contents($path), true) ?? [];
+  }
+}
+
+if (!function_exists('save_json')) {
+  function save_json($file, $data) {
+    $json = json_encode($data, JSON_PRETTY_PRINT);
+    $path = __DIR__ . '/../data/' . $file;
+    $saved = @file_put_contents($path, $json);
+    if ($saved === false) {
+      $tmp_path = sys_get_temp_dir() . '/' . $file;
+      @file_put_contents($tmp_path, $json);
+    }
+  }
+}
+
+$services = get_json('services.json');
 
 // DELETE
 if (isset($_GET['delete'])) {
   $id = (int)$_GET['delete'];
   $services = array_values(array_filter($services, fn($s) => $s['id'] !== $id));
-  file_put_contents($data_file, json_encode($services, JSON_PRETTY_PRINT));
+  save_json('services.json', $services);
   header('Location: services.php');
   exit;
 }
@@ -35,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   } else {
     $services[] = $entry;
   }
-  file_put_contents($data_file, json_encode($services, JSON_PRETTY_PRINT));
+  save_json('services.json', $services);
   header('Location: services.php');
   exit;
 }
